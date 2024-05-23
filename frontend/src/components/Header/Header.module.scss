@@ -1,0 +1,35 @@
+.header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+
+  background-color: #0275d8;
+  color: white;
+  display: flex;
+  width: 100%;
+
+  box-sizing: border-box;
+  padding: 1em 5vw;
+
+  nav {
+    margin-left: auto;
+    display: flex;
+    -moz-column-gap: 1em;
+    column-gap: 1em;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition-duration: 300ms;
+    display: inline-block;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &.warning {
+      margin-left: 2em;
+    }
+  }
+}

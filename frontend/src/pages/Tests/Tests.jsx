@@ -2,6 +2,9 @@ import React, { useEffect } from "react";
 import { useGetTestsListQuery } from "../../redux/tests/tests.api";
 import List from "../../components/List";
 import Loader from "../../components/Loader";
+import { Link } from "react-router-dom";
+
+import styles from "./Tests.module.scss";
 
 export const Tests = () => {
   const { isLoading, data, error } = useGetTestsListQuery();
@@ -21,12 +24,13 @@ export const Tests = () => {
       <List
         data={data ?? []}
         listItemKey={"id"}
+        listClassName={styles.tests}
         renderItem={(item) => (
           <div>
             <div>
-              <a
-                href={`/tests/${item.id}`}
-              >{`Перейти к тесту: "${item.name}".`}</a>
+              <Link
+                to={`/tests/${item.id}`}
+              >{`Перейти к тесту: "${item.name}".`}</Link>
             </div>
 
             <div>{item.description ?? "Описание отсутствует"}</div>

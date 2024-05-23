@@ -1,0 +1,17 @@
+.input__container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5em;
+  margin-bottom: 1.5em;
+}
+
+.required {
+  label {
+    &::after {
+      content: "*";
+      display: inline-block;
+      color: red;
+      padding-left: 0.2em;
+    }
+  }
+}

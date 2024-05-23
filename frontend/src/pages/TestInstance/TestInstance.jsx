@@ -51,6 +51,11 @@ export const TestInstance = () => {
             }, 0);
           createResult(data);
         })}
+        style={{
+          borderTop: "1px solid #ccc",
+          paddingTop: "1rem",
+          marginTop: "1rem",
+        }}
       >
         <input type='hidden' value={testId} {...register("test")} />
 
@@ -59,7 +64,9 @@ export const TestInstance = () => {
             data={data.question_set}
             renderItem={(question, index) => (
               <div>
-                <div>{`Вопрос ${index + 1}: ${question.text}.`}</div>
+                <div style={{ marginBottom: "1rem" }}>{`Вопрос ${index + 1}: ${
+                  question.text
+                }.`}</div>
 
                 <div>
                   {["Нет", "Скорее нет", "Не знаю", "Скорее да", "Да"].map(
@@ -86,7 +93,11 @@ export const TestInstance = () => {
         )}
 
         {data && data.question_set && (
-          <input type='submit' value='Подтвердить' />
+          <input
+            type='submit'
+            value='Подтвердить'
+            style={{ fontSize: "1rem", backgroundColor: "#5cb85c" }}
+          />
         )}
       </form>
     </div>

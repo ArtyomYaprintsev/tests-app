@@ -1,5 +1,7 @@
 import React, { forwardRef } from "react";
 
+import styles from "./Input.module.scss";
+
 export const Input = forwardRef(
   (
     {
@@ -19,9 +21,9 @@ export const Input = forwardRef(
     return (
       <div
         className={[
-          "input__container",
-          isRequired ? " required" : "",
-          showAsRow ? " row" : "",
+          styles.input__container,
+          isRequired ? styles.required : "",
+          showAsRow ? styles.row : "",
         ]
           .join(" ")
           .trim()}

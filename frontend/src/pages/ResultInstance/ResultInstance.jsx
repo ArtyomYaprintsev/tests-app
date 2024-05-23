@@ -1,7 +1,11 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useRetrieveResultQuery } from "../../redux/results/results.api";
 import Loader from "../../components/Loader";
+
+import image from "../../assets/code.png";
+
+import styles from "./ResultInstance.module.scss";
 
 export const ResultInstance = () => {
   const { resultId } = useParams();
@@ -22,6 +26,13 @@ export const ResultInstance = () => {
 
       {data &&
         (data.user_points > 10 ? (
+          // <div>
+          //   <img
+          //     src={image}
+          //     alt='Example'
+          //     style={{ display: "block", margin: "0 auto" }}
+          //   />
+          // </div>
           <div>Show good illustration.</div>
         ) : data.user_points > 5 ? (
           <div>Show normal illustration.</div>
@@ -32,19 +43,25 @@ export const ResultInstance = () => {
       {data && (
         <div>
           <div>
-            <a href={`/tests/${data.test}`}>{`Перейти к тесту.`}</a>
+            <Link to={`/tests/${data.test}`}>{`Перейти к тесту.`}</Link>
           </div>
 
           <div>Идентификатор теста: {data.test}</div>
           <div>Тест пройден: {new Date(data.created).toLocaleString()}</div>
 
           {data.result && (
-            <>
+            <div
+              style={{
+                borderTop: "1px solid #ccc",
+                paddingTop: "1rem",
+                marginTop: "1rem",
+              }}
+            >
               <div>Результат: {data.result.summary}</div>
               <div>
                 Описание: {data.result.description ?? "Описание отсутствует"}
               </div>
-            </>
+            </div>
           )}
         </div>
       )}

@@ -2,6 +2,9 @@ import React, { useEffect } from "react";
 import { useLazyGetResultsListQuery } from "../../redux/results/results.api";
 import Loader from "../../components/Loader";
 import List from "../../components/List";
+import { Link } from "react-router-dom";
+
+import styles from "./Home.module.scss";
 
 export const Home = () => {
   const [getResults, { data, isLoading, error }] = useLazyGetResultsListQuery();
@@ -22,20 +25,17 @@ export const Home = () => {
 
       {isLoading && <Loader />}
 
-      <div>
-        <a href='/tests'>Перейти к списку тестов.</a>
-      </div>
-
       <List
         data={data ?? []}
         listItemKey={"id"}
+        listClassName={styles.results}
         renderItem={(item) => (
           <div>
             <div>
-              <a href={`/results/${item.id}`}>{`Перейти к результату.`}</a>
+              <Link to={`/results/${item.id}`}>{`Перейти к результату.`}</Link>
             </div>
             <div>
-              <a href={`/tests/${item.test}`}>{`Перейти к тесту.`}</a>
+              <Link to={`/tests/${item.test}`}>{`Перейти к тесту.`}</Link>
             </div>
 
             <div>Идентификатор теста: {item.test}</div>

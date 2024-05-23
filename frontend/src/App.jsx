@@ -1,4 +1,9 @@
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import {
+  Navigate,
+  Route,
+  BrowserRouter as Router,
+  Routes,
+} from "react-router-dom";
 
 import Login from "./pages/Login";
 import Logout from "./pages/Logout";
@@ -24,6 +29,8 @@ function App() {
           <Route path='/tests/:testId' element={<TestInstance />} />
           <Route path='/results/:resultId' element={<ResultInstance />} />
         </Route>
+
+        <Route path='*' element={<Navigate to='/home' />} />
       </Routes>
     </Router>
   );

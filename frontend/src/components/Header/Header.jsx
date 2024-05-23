@@ -1,22 +1,24 @@
 import React from "react";
 import { useGetUserDataQuery } from "../../redux/personal/personal.api";
 
+import styles from "./Header.module.scss";
+import { Link } from "react-router-dom";
+
 export const Header = () => {
   const { data } = useGetUserDataQuery();
 
   return (
-    <div className='header'>
+    <div className={styles.header}>
+      {data && <div>{data.username}</div>}
       <nav>
-        <a href='/home'>Главная</a>
-        <a href='/tests'>Тесты</a>
+        <Link to='/home'>Главная</Link>
+        <Link to='/tests'>Тесты</Link>
         {data && (
-          <a href='/logout' className='warning'>
+          <Link to='/logout' className={styles.warning}>
             Выйти
-          </a>
+          </Link>
         )}
       </nav>
-
-      {data && <div>{data.username}</div>}
     </div>
   );
 };

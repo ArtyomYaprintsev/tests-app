@@ -32,7 +32,7 @@
 
 ### Frontend
 
-1. Open terminal inside the `backend` dir.
+1. Open terminal inside the `frontend` dir.
 2. install dependencies:
 
     ```bash

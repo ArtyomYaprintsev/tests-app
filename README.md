@@ -44,3 +44,17 @@
     ```bash
     npm run dev
     ```
+
+## Demo
+
+### `db.sqlite3` usage
+
+Some data represents inside the `backend/db.sqlite3`
+
+1. Superuser credentials:
+    - login: adminArtyom
+    - password: somePas_12D
+
+2. Random user:
+    - login: newUser1
+    - password: newUser1

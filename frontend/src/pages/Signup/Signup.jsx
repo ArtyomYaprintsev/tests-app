@@ -31,7 +31,7 @@ export const Signup = () => {
 
   return (
     <div className={`${styles["signup-page"]} page`}>
-      <form className='login__form' onSubmit={handleSubmit(signupUser)}>
+      <form className='signup__form' onSubmit={handleSubmit(signupUser)}>
         <h2>Регистрация</h2>
 
         <Input
@@ -77,12 +77,24 @@ export const Signup = () => {
           </span>
         )}
 
-        {/* {data ? ( */}
-        <div style={{ textAlign: "center" }}>
-          <h3>Пользователь успешно зарегистрирован</h3>
-          Вы можете перейти на страницу <Link to='/login'>входа</Link>.
-        </div>
-        {/* ) : (
+        {data ? (
+          <div style={{ textAlign: "center" }}>
+            <h3>Пользователь успешно зарегистрирован</h3>
+            Вы можете перейти на страницу{" "}
+            <Link
+              to='/login'
+              style={{
+                display: "block",
+                textAlign: "center",
+                fontSize: "0.8em",
+                color: "#0275d8",
+              }}
+            >
+              входа
+            </Link>
+            .
+          </div>
+        ) : (
           <>
             <input
               type='submit'
@@ -90,10 +102,19 @@ export const Signup = () => {
               disabled={isLoading}
             />
             <div>
-              <Link to='/login'>Вернуться ко входу</Link>
+              <Link
+                to='/login'
+                style={{
+                  display: "block",
+                  textAlign: "center",
+                  color: "#0275d8",
+                }}
+              >
+                Вернуться ко входу
+              </Link>
             </div>
           </>
-        )} */}
+        )}
       </form>
     </div>
   );

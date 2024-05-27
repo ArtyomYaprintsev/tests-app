@@ -5,8 +5,6 @@ import Loader from "../../components/Loader";
 
 import image from "../../assets/code.png";
 
-import styles from "./ResultInstance.module.scss";
-
 export const ResultInstance = () => {
   const { resultId } = useParams();
 
@@ -26,15 +24,15 @@ export const ResultInstance = () => {
 
       {data &&
         (data.user_points > 10 ? (
-          // <div>
-          //   <img
-          //     src={image}
-          //     alt='Example'
-          //     style={{ display: "block", margin: "0 auto" }}
-          //   />
-          // </div>
-          <div>Show good illustration.</div>
-        ) : data.user_points > 5 ? (
+          <div>
+            <img
+              src={image}
+              alt='Example'
+              style={{ display: "block", margin: "0 auto" }}
+            />
+          </div>
+        ) : // <div>Show good illustration.</div>
+        data.user_points > 5 ? (
           <div>Show normal illustration.</div>
         ) : (
           <div>Show bad illustration.</div>

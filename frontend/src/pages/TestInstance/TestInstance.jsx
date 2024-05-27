@@ -10,11 +10,9 @@ export const TestInstance = () => {
   const { testId } = useParams();
   const navigate = useNavigate();
 
-  const { data, isLoading, error } = useRetrieveTestQuery(testId);
-  const [
-    createResult,
-    { data: result, isLoading: resultIsLoading, error: resultError },
-  ] = useCreateResultMutation();
+  const { data, isLoading } = useRetrieveTestQuery(testId);
+  const [createResult, { data: result, isLoading: resultIsLoading }] =
+    useCreateResultMutation();
 
   const { handleSubmit, register } = useForm();
 
@@ -25,7 +23,7 @@ export const TestInstance = () => {
   }, [result]);
 
   return (
-    <div className='test-instance-page page'>
+    <div className='test-instance-page page' style={{ paddingBottom: "50px" }}>
       <h2>{`Тест "${data ? data.name : "#" + testId}"`}</h2>
 
       {data && (
@@ -63,7 +61,7 @@ export const TestInstance = () => {
           <List
             data={data.question_set}
             renderItem={(question, index) => (
-              <div>
+              <div style={{ marginBottom: "2rem" }}>
                 <div style={{ marginBottom: "1rem" }}>{`Вопрос ${index + 1}: ${
                   question.text
                 }.`}</div>
